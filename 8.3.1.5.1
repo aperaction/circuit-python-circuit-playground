@@ -1,0 +1,34 @@
+import random
+
+# Function to turn NeoPixel to a specific color
+def turn_neopixel(color):
+    # Placeholder function, replace with actual NeoPixel control
+    print("Turning NeoPixel", color)
+
+# Ask user for a number from 1 to 10
+user_number = int(input("Enter an integer number from 1-10 > "))
+while user_number < 1 or user_number > 10:
+    user_number = int(input("Invalid input. Please enter an integer number from 1-10 > "))
+
+print("Your number", user_number, "is a valid Integer from 1-10. Thanks")
+print("Your Number is", user_number)
+turn_neopixel("Green")
+
+# Set up guessing loop
+count = 0
+while count < 5:
+    count += 1
+    guessed_number = random.randint(1, 10)
+    print("Guess #", count)
+    print("I guessed", guessed_number)
+    if guessed_number == user_number:
+        turn_neopixel("Blue")
+        print("I Win, I guessed your number in", count, "tries")
+        break
+    else:
+        turn_neopixel("Red")
+
+# Check if user won
+if count == 5:
+    print("You Win, I did not guess your number in", count, "tries")
+
